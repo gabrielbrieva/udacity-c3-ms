@@ -14,7 +14,7 @@ RUN npm install
 # Copy app source
 COPY . .
 
-EXPOSE $SERVER_PORT
+EXPOSE 8080
 
 # run api-user
 CMD npm run prod
