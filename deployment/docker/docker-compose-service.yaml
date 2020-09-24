@@ -1,14 +1,14 @@
 version: "3"
 services:
-  reverse_proxy:
+  reverse-proxy:
       image: tuxan/udagram-reverse-proxy
       ports:
           - 8080:8080
       restart: always
       depends_on:
-        - api_user
-        - api_feed
-  api_feed:
+        - api-user
+        - api-feed
+  api-feed:
     image: tuxan/udagram-api-feed
     volumes:
       - $HOME/.aws:/root/.aws
@@ -22,7 +22,7 @@ services:
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
-  api_user:
+  api-user:
     image: tuxan/udagram-api-user
     environment:
       POSTGRES_USERNAME: $POSTGRES_USERNAME
