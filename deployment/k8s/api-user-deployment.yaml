@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: api-user
+  name: api-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: api-user
+  template:
+    metadata:
+      labels:
+        service: api-user
+    spec:
+      containers:
+      - image: tuxan/udagram-api-user
+        name: api-user 
+        imagePullPolicy: Always  
+        envFrom:
+          - configMapRef:
+              name: env-config
+          - secretRef:
+              name: env-secret
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
+      restartPolicy: Always
