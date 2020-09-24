@@ -14,8 +14,8 @@ RUN npm install
 # Copy app source
 COPY . .
 
-# Build ionic application as production
-RUN npm run build -- --prod
+# Build ionic application
+RUN npx ionic build
 
 
 ## Use ngnix to serve ionic application build
