@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  reverse_proxy:
+    build:
+      context: ../../reverse-proxy
+    image: tuxan/udagram-reverse-proxy
+  api_user:
+    build:
+      context: ../../api-user
+    image: tuxan/udagram-api-user
+  api_feed:
+    build:
+      context: ../../api-feed
+    image: tuxan/udagram-api-feed
+  frontend:
+    build:
+      context: ../../frontend
+    image: tuxan/udagram-frontend
