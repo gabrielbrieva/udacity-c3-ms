@@ -38,5 +38,3 @@ services:
     image: tuxan/udagram-frontend
     ports:
       - "8100:80"
-    environment:
-      UDAGRAM_API_ENDPOINT: $UDAGRAM_API_ENDPOINT
